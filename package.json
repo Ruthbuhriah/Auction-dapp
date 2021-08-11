@@ -1,5 +1,8 @@
 {
   "main": "index.js",
+  "private": true,
+  "version": "1.0.0",
+  "description": "[Dacade] An auction testnet dApp that utilizes Celo Blockchain technologies.",
   "dependencies": {
     "@celo/contractkit": "^1.0.2",
     "@remix-project/remixd": "^0.5.0",
@@ -10,10 +13,22 @@
     "html-webpack-plugin": "3.2.0",
     "webpack": "4.29.6",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "nodemon": "^2.0.7"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emmanuel-umeh/Auction-dapp.git"
+  },
+  "keywords": [
+    "dacade",
+    "celo",
+    "blockchain",
+    "auction"
+  ],
   "scripts": {
-    "dev": "node index.js",
-    "build": "webpack"
+    "dev": "nodemon index.js",
+    "build": "webpack",
+    "start": "servez -S dist"
   }
 }
