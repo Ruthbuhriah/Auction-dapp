@@ -21,6 +21,7 @@ or
 yarn install
 
 ```
+If yarn install does not work ensure to delete the package-lock.json file and then run the command.
 
 # Start
 

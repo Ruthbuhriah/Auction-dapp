@@ -38,7 +38,7 @@ const connectCeloWallet = async function() {
       contract = new kit.web3.eth.Contract(auctionAbi, AuctionContractAddress)
 
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+    return  notification(`⚠️ ${error}.`)
     }
   } else {
     notification("⚠️ Please install the CeloExtensionWallet.")
@@ -689,7 +689,7 @@ document
           from: kit.defaultAccount
         })
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+    return notification(`⚠️ ${error}.`)
     }
     notification(`🎉 You successfully added a new auction.`)
     getAuctions()
@@ -707,14 +707,14 @@ document.querySelector("#activeListings").addEventListener("click", async (e) =>
   notification("⌛ Loading...")
   renderTitle("Active Auctions")
   renderAuctions(activeListings)
-  notification("Complete")
+  // notification("Complete")
 })
 
 document.querySelector("#closedListings").addEventListener("click", async (e) => {
   notification("⌛ Loading...")
   renderTitle("Closed Auctions")
   renderAuctions(closedListings)
-  notification("Complete")
+  // notification("Complete")
 })
 
 document.querySelector("#auctionDisplay").addEventListener("click", async (e) => {
@@ -734,7 +734,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
     try {
       await approve(auctions[index].biddingFee)
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     notification(`⌛ Awaiting payment of ${auctions[index].biddingFee.shiftedBy(-ERC20_DECIMALS).toFixed(2)} cUSD for Auction...`)
     try {
@@ -748,7 +748,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
       notificationOff()
       await delay(500);
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     location.reload();
   }
@@ -769,7 +769,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
       notificationOff()
       await delay(500);
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     location.reload();
   }
@@ -790,7 +790,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
       notificationOff()
       await delay(500);
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     location.reload();
   }
@@ -803,7 +803,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
     try {
       await approve(auctions[index].highestBid)
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     notification(`⌛ Awaiting payment for "${auctions[index].itemName}"...`)
     try {
@@ -817,7 +817,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
       notificationOff()
       await delay(500);
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     location.reload();
   }
@@ -830,7 +830,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
     try {
       await approve(auctions[index].auctionTax)
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+     return notification(`⚠️ ${error}.`)
     }
     notification(`⌛ Awaiting Refundable Tax Payment for "${auctions[index].itemName}"...`)
     try {
@@ -844,7 +844,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
       notificationOff()
       await delay(500);
     } catch (error) {
-      notification(`⚠️ ${error}.`)
+    return  notification(`⚠️ ${error}.`)
     }
     location.reload();
   }
@@ -865,7 +865,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
         notificationOff()
         await delay(500);
       } catch (error) {
-        notification(`⚠️ ${error}.`)
+     return   notification(`⚠️ ${error}.`)
       }
       location.reload();
     }
@@ -886,7 +886,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
         notificationOff()
         await delay(500);
       } catch (error) {
-        notification(`⚠️ ${error}.`)
+       return notification(`⚠️ ${error}.`)
       }
       location.reload();
     }
@@ -907,7 +907,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
         notificationOff()
         await delay(500);
       } catch (error) {
-        notification(`⚠️ ${error}.`)
+      return  notification(`⚠️ ${error}.`)
       }
       location.reload();
     }
@@ -928,7 +928,7 @@ document.querySelector("#auctionDisplay").addEventListener("click", async (e) =>
         notificationOff()
         await delay(500);
       } catch (error) {
-        notification(`⚠️ ${error}.`)
+      return  notification(`⚠️ ${error}.`)
       }
       location.reload();
     }
